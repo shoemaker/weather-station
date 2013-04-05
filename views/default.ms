@@ -60,7 +60,7 @@
 					</div>
 					<small>
 						Home weather station powered by Arduino. <br />
-						Uptime: {{duration}}.
+						Total uptime: {{duration}}.
 					</small>
 				</div>
 			</div>

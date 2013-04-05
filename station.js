@@ -38,7 +38,7 @@ app.get('/weather', function(req, res) {
 			// Calculate how long this project has been running. 
 			// The first read date was 01/13/2013 at 17:36. 
 			var startDate = moment('01/13/2013 17:36', 'MM/DD/YYYY HH:mm');
-			var endDate = moment();
+			var endDate = moment('04/14/2013 06:22:34', 'MM/DD/YYYY HH:mm:ss');
 			var duration = moment.duration(endDate.diff(startDate));
 			var durationDisplay = Math.round(duration.asDays()) + ' days, ' + duration.hours() + ' hours, ' + duration.minutes() + ' minutes, ' + duration.seconds() + ' seconds';
 			
