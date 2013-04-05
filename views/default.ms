@@ -35,7 +35,15 @@
 		</script>
 	</head>
 	<body>
+	
 		<div id="wrap">
+
+			<div id="projectMessage" class="alert alert-block">
+				<h4>This project is no longer being updated.</h4>
+				<p>
+					As of XXXX the home weather station project has been taken offline.
+				</p>
+			</div>
 
 			<div class="jumbotron masthead">
 				<div class="container">
