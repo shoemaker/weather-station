@@ -82,7 +82,9 @@ function retrieveWeatherData(query, projection, callback) {
 			db.collection('weather', {safe:false}, function(err, collection) {
 				collection.findOne(query, projection, function(err, data){ 
 					if (err) {
-						callback(err, null);
+						db.close(function() {
+							callback(err, null);
+						});
 					} else {
 						// First, calculate the min/max value
 						var minTemp, maxTemp, minHumidity, maxHumidity;
@@ -132,7 +134,11 @@ function retrieveWeatherData(query, projection, callback) {
 						response.maxTemp = maxTemp;
 						response.minHumidity = minHumidity;
 						response.maxHumidity = maxHumidity;
-						callback(null, response);
+						
+						db.close(function() {
+							callback(null, response);							
+						});
+
 					}
 				});
 			});
@@ -174,17 +180,18 @@ app.post('/weather/api', function(req, res) {
 					db.collection('weather', {safe:false}, function(err, collection) {
 						
 						collection.update(query, { $push : { 'readings' : newReading }, $set : { dateUpdated : new Date() } }, {safe:false}, function(err, result) {
-							if (err) {
-								response.message = 'Encountered error: ' + err + '.';
-								response.isSuccessful = false;
-								res.json(500, response);
-							} else {
-								response.message = 'Successfully added new reading.';
-								response.data = newReading;
-							    res.json(200, response);	
-							}
 							
-							db.close();					
+							db.close(function() {
+								if (err) {
+									response.message = 'Encountered error: ' + err + '.';
+									response.isSuccessful = false;
+									res.json(500, response);
+								} else {
+									response.message = 'Successfully added new reading.';
+									response.data = newReading;
+								    res.json(200, response);	
+								}								
+							});
 						});
 					})
 				} else {
