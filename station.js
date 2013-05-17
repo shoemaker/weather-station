@@ -30,7 +30,7 @@ app.get('/weather', function(req, res) {
 	// Load the default template
 	fs.readFile('./views/default.ms', 'utf8', function (err, msTemplate) {
 	    if (err) { 
-		   	console.log('Encountered error reading template.');
+		   	console.log('Encountered error reading template. ' + err);
 		   	res.end(JSON.stringify(err));
 		} else {
 			var template = hogan.compile(msTemplate.toString());  // Compile the Moustache template.
@@ -66,10 +66,14 @@ app.get('/weather', function(req, res) {
 			var projection = { title : 1, readings : { $slice : -169 } };
 						
 			retrieveWeatherData(query, projection, function(err, result) {
-				result.duration = durationDisplay;
-				
-				var output = template.render(result);  // Transform the template with the weather data. 
-				res.end(output);
+				if (!err) {
+					result.duration = durationDisplay;
+					var output = template.render(result);  // Transform the template with the weather data. 
+					res.end(output);
+				} else {
+					console.log('Encountered error retrieving weather data. ' + err);
+					res.end('Encountered error retrieving weather data. ' + err);
+				}
 			});
 		}
 	});
