@@ -252,6 +252,10 @@ function tweetWeather(shortCode, newReading) {
 								twitter.tweetWeather(user, station, newReading, function(err, result) {
 									// No follow up, this is a fire-and-forget action. 
 								});
+								
+								db.close(function() {
+									console.log('Weather tweeted, closing DB connection.');
+								});
 							});
 						});
 					} else {
