@@ -111,9 +111,13 @@
 							The charts on this site compile the readings from the previous seven days. 
 						</p>
 						<p>
-							There is an inverse relationship between temperature  
-							and humidity in my home. I suspect this is evidence of the dehumidifier that runs when the central air system is running. 
-							Also, the timing on the Arduino seems to &quot;drift&quot;. I programmed the Arduino to save a reading every hour, using the number 
+							There is a seasonal correlation between temperature and humidity in my home. 
+							In the Winter, there is an inverse relationship (when temperatures go up, humidity goes down, and vice versa).
+							In the Summer, temperature and humidity seem to loosely correlate with each other. 
+							I suspect this is evidence of the dehumidifier that runs when the central air system is running. 
+						</p>
+						<p>
+							Finally, the timing on the Arduino seems to &quot;drift&quot;. I programmed the Arduino to save a reading every hour, using the number 
 							of milliseconds the program has been running as a counter. Over the first week of this project the 
 							counter was off by about 31 minutes. I corrected this problem by querying the current time from a 
 							<a href="http://tf.nist.gov/tf-cgi/servers.cgi" target="_blank">NIST Internet Time Service</a>, resetting the interval each hour.
