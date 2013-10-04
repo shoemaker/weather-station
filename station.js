@@ -1,9 +1,9 @@
-var hogan = require("hogan.js");  // Library for Mustache templates
 var fs = require('fs');  // File system access
+var hogan = require("hogan.js");  // Library for Mustache templates
 var express = require('express');  // Express framework
-
-var moment = require('./lib/moment');
+var moment = require('moment');
 var mongo = require('mongodb');  // Init MongoDB library
+
 var c = require('./config').config;  // App configuration
 var models = require('./models/models');
 var twitter = require('./controllers/twitter');
@@ -25,8 +25,6 @@ app.use('/weather/img', express.static(__dirname + '/img'));
 // Handler to return the default page
 app.get('/weather', function(req, res) {
 
-	// TODO: Define the data structure first? 
-	
 	// Load the default template
 	fs.readFile('./views/default.ms', 'utf8', function (err, msTemplate) {
 	    if (err) { 
@@ -231,7 +229,8 @@ app.get(/weather\/api\/([0-9a-zA-Z]{6})/, function(req, res) {
 	
 });
 
-app.listen(8085);
+app.listen(c.portNum);
+console.log('Server started on port', c.portNum + '.\nTry this: http://localhost:' + c.portNum + '/weather');
 
 
 // Look up the details to tweet a new reading, then tweet it. 

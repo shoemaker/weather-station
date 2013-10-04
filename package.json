@@ -1,0 +1,30 @@
+{
+  "name": "weatherStation",
+  "version": "1.0.0",
+  "description": "Web front-end and API for Arduino-powered home weather station.",
+  "main": "station.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoemaker/shoe-io.git"
+  },
+  "keywords": [
+    "arduino",
+    "rest",
+    "mongodb"
+  ],
+  "author": "Brian Shoemaker (brianshoemaker+dev@gmail.com)",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/shoemaker/shoe-io/issues"
+  },
+  "dependencies" : {
+    "hogan.js": ">=2.0.0",
+    "express": ">=3.3.5 <3.4.0",
+    "moment": "2.2.1",
+    "mongodb" : "1.3.18",
+    "oauth" : "git://github.com/shoemaker/node-oauth.git#master"
+  }
+}
