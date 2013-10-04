@@ -1,6 +1,7 @@
 var https = require('https');
-var moment = require('../lib/moment');
-var OAuth = require('../lib/node-oauth/oauth').OAuth;  // Using this rather than NPM install to resolve "!" when POSTing to Twitter.
+var moment = require('moment');
+var OAuth = require('oauth').OAuth;  // Using this rather than NPM install to resolve "!" when POSTing to Twitter.
+
 var c = require('../config').config;  // App configuration
 
 var oa = new OAuth(
