@@ -4,7 +4,7 @@
   "description": "Web front-end and API for Arduino-powered home weather station.",
   "main": "station.js",
   "scripts": {
-    "start": "nodemon --debug station.js",
+    "start": "nodemon -w ./ station.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
