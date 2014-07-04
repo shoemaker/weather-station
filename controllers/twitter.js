@@ -1,6 +1,6 @@
 var https = require('https');
 var moment = require('moment');
-var OAuth = require('oauth').OAuth;  // Using this rather than NPM install to resolve "!" when POSTing to Twitter.
+var OAuth = require('oauth').OAuth; 
 
 var c = require('../config').config;  // App configuration
 
@@ -15,7 +15,9 @@ var oa = new OAuth(
 );
 
 
-// Tweet weather details for a specific user
+/*
+ * Tweet weather details for a specific user. 
+ */
 exports.tweetWeather = function(user, station, reading, callback) {
 	// Build up the tweet text
 	var readDate = moment(reading.readDate);

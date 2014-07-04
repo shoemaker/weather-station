@@ -1,6 +1,11 @@
+'use strict';
+
 google.load("visualization", "1", { packages: ["corechart"] });
 
 $(document).ready(function () {
+    // Open all links in a new window.
+    $('a:not(.ignore)').attr('target', '_blank'); 
+
 	// Define the options for the various charts. 
 	var lineOptions = {
 		height: 250,
@@ -9,22 +14,31 @@ $(document).ready(function () {
 			left: 40,
 			top: 10,
 			height: '70%',
-			width: '100%'
+			width: '95%'
 		},
+		colors: ['#C44D58','#556270'],
+		fontName: 'Open Sans',
+		fontSize: 14,
 		legend: { 
 			position: 'in'
 		},
 		titlePosition: 'in', 
 		hAxis: { 
-			textPosition: 'out'
+			textPosition: 'out',
+			format: 'string',
+			allowContainerBoundaryTextCufoff: false,
+			slantedText: false
 		}, 
 		vAxis: { 
-			textPosition: 'out'
+			textPosition: 'out',
+			titleTextStyle: {
+                italic: false
+            }
 		},
 		pointSize: 0,
 		lineWidth: 3
 	};
-	
+
 	var percentChartOptions = jQuery.extend(true, {}, lineOptions);
 	percentChartOptions.vAxis.format = '#%';
 	
@@ -90,7 +104,6 @@ $(document).ready(function () {
 
 		temperatureData.setValue(ii, 4, readings[ii].readDate + '\n' + readings[ii].tempF + ' F, ' + readings[ii].tempC + ' C');
 		
-		
 		percentData.setValue(ii, 0, readingsPercent[ii].readDate);
 		percentData.setValue(ii, 1, readingsPercent[ii].tempC);
 		
@@ -113,7 +126,7 @@ $(document).ready(function () {
 	var percentChart = new google.visualization.LineChart(document.getElementById('chart2'));
 	percentChart.draw(percentData, percentChartOptions);
 	
-				
+	// If the window is resized, the charts need to be told to re-draw themselves. 			
 	$(window).resize(function() {
 		temperatureChart.draw(temperatureData, lineOptions);
 		percentChart.draw(percentData, percentChartOptions);
