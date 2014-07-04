@@ -21,4 +21,5 @@ When the Arudino weather station submits a new reading, it uses the following:
 
 * HTTP POST 
 * http://localhost:8085/weather/api?shortCode=&lt;shortCode&gt; 
+* Content-Type: `application/json` 
 * Payload: `{ "tempC" : 20.6, "humidity" : 27.9, "light" : 175 }` 

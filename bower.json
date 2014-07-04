@@ -1,12 +1,12 @@
 {
-  "name": "twitter-stream",
+  "name": "weather-station",
   "main": "stream.js",
-  "version": "1.1",
-  "homepage": "https://github.com/shoemaker/stream",
+  "version": "1.1.0",
+  "homepage": "https://github.com/shoemaker/weather-station",
   "authors": [
     "Brian Shoemaker <brianshoemaker@gmail.com>"
   ],
-  "description": "Streaming the Twitter public timeline.",
+  "description": "Web front-end and API for Arduino-powered home weather station.",
   "moduleType": [
     "node"
   ],
