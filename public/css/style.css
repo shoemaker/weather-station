@@ -1,6 +1,6 @@
 
 body {
-	padding: 5px;
+	padding: 0;
     margin: 0;
     background-color: #FFFFFF;
     color: #222222;
@@ -90,6 +90,11 @@ footer {
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
 	
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
 	.jumbotron {
 		margin-left: -20px;
 		margin-right: -20px;
