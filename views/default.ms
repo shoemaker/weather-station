@@ -8,14 +8,14 @@
         <meta name="description" content="Home weather station powered by Arduino.">
         <meta name="author" content="Brian Shoemaker">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="./library/bootstrap/docs/assets/css/bootstrap.css">
+        <link href="./library/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <style type="text/css">
             .hero-unit {
                 margin-top: 20px;
                 padding: 20px;
             }
         </style>
-        <link rel="stylesheet" href="./library/bootstrap/docs/assets/css/bootstrap-responsive.css">
+        <link href="./library/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="./css/style.css" rel="stylesheet">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -48,17 +48,17 @@
             </div>
             {{/displayOfflineMsg}}
             <div class="jumbotron masthead">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="span5 offset1">
+                        <div class="col-sm-offset-1 col-sm-5">
                             <h3>Temperature</h3>
                             <h1>{{lastReading.tempF}} F</h1>
                         </div>
-                        <div class="span5">
+                        <div class="col-sm-5">
                             <h3>Humidity</h3>
                             <h1>{{lastReading.humidity}}%</h1>
                         </div>
-                        <div class="span1"></div>
+                        <div class="col-sm-1"></div>
                     </div>
                     <small>
                         Home weather station powered by Arduino. <br />
@@ -67,34 +67,34 @@
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="span12">
+                    <div class="col-sm-12">
                         <h3>Temperature</h3>
                         <p>
                             Hourly temperature readings over the past seven days.
                         </p>
-                        <div id="chart1"><i class="icon-fire"></i> Loading...</div>
+                        <div id="chart1"><i class="fa fa-cog fa-spin fa-2x"></i> Loading...</div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span12">
+                    <div class="col-sm-12">
                         <h3>Temperature vs. Humidity</h3>
                         <p>
                             Comparing temperature and humidity change over the past seven days.
                         </p>
-                        <div id="chart2"><i class="icon-fire"></i> Loading...</div>
+                        <div id="chart2"><i class="fa fa-cog fa-spin fa-2x"></i> Loading...</div>
                     </div>
                 </div>
             </div>
-            <div class="container" style="margin-top:20px;">
+            <div class="container-fluid" style="margin-top:20px;">
                 <div class="row">
-                    <div class="span12">
+                    <div class="col-sm-12">
                         <h3>Project Details</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span6">
+                    <div class="col-sm-6">
                         <p>
                             This project combines an 
                             <a href="https://www.adafruit.com/products/50">Arduino Uno R3</a>, 
@@ -126,9 +126,9 @@
                             Follow hourly updates at <a href="http://twitter.com/shoe_sandbox">@shoe_sandbox</a>. 
                         </p>
                     </div>
-                    <div class="span6">
+                    <div class="col-sm-6">
                         <a href="./img/weatherStation.jpg">
-                            <img src="./img/weatherStation_small.jpg" class="img-polaroid" />
+                            <img src="./img/weatherStation_small.jpg" class="img-thumbnail img-responsive" />
                         </a>
                     </div>
                 </div>
@@ -146,9 +146,9 @@
         </footer>   
         
         <script src="./library/jquery/jquery.min.js"></script>
-        <script src="./library/bootstrap/docs/assets/js/bootstrap.min.js"></script>
+        <script src="./library/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script type="text/javascript" src="/weather/js/script.js"></script>
+        <script type="text/javascript" src="./js/script.js"></script>
         <script type="text/javascript">
             var readings = {{{readings}}};
             var readingsPercent = {{{readingsPercent}}};
