@@ -1,6 +1,6 @@
 {
   "name": "weatherStation",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Web front-end and API for Arduino-powered home weather station.",
   "main": "station.js",
   "scripts": {
