@@ -4,7 +4,7 @@
   "description": "Web front-end and API for Arduino-powered home weather station.",
   "main": "station.js",
   "scripts": {
-    "start": "nodemon --debug --watch ./ station.js",
+    "start": "gulp build & nodemon --debug --watch ./ station.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,17 +21,25 @@
   "bugs": {
     "url": "https://github.com/shoemaker/weather-station/issues"
   },
-  "dependencies" : {
-    "hogan.js": "3.0.1",
-    "express": "4.4.3",
+  "dependencies": {
     "body-parser": "1.4.3",
     "compression": "1.0.8",
+    "express": "4.4.3",
+    "hogan.js": "3.0.1",
+    "lodash": "2.4.1",
     "moment": "2.6.0",
     "mongodb": "1.4.5",
-    "oauth": "0.9.12",
-    "lodash": "2.4.1"
+    "oauth": "0.9.12"
   },
   "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-clean": "^0.3.1",
+    "gulp-header": "^1.0.2",
+    "gulp-jshint": "^1.6.4",
+    "gulp-minify-css": "^0.3.6",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.1",
     "nodemon": "1.2.0"
   },
   "engines": {

@@ -16,7 +16,7 @@
             }
         </style>
         <link href="./library/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="./css/style.css" rel="stylesheet">
+        <link href="./css/style.min.css" rel="stylesheet">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -148,7 +148,7 @@
         <script src="./library/jquery/jquery.min.js"></script>
         <script src="./library/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script type="text/javascript" src="./js/script.js"></script>
+        <script type="text/javascript" src="./js/script.min.js"></script>
         <script type="text/javascript">
             var readings = {{{readings}}};
             var readingsPercent = {{{readingsPercent}}};

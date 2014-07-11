@@ -1,6 +1,12 @@
+/*global $:false */
+/*global jQuery:false */
+/*global google:false */
+/*global readings:false */
+/*global readingsPercent:false */
+/*global extremes:false */
 'use strict';
 
-google.load("visualization", "1", { packages: ["corechart"] });
+google.load('visualization', '1', { packages: ['corechart'] });
 
 $(document).ready(function () {
     // Open all links in a new window.
@@ -70,13 +76,13 @@ $(document).ready(function () {
 		temperatureData.setValue(ii, 0, readings[ii].readDate);
 		temperatureData.setValue(ii, 1, readings[ii].tempF);
 		
-		if (readings[ii].tempC == extremes.maxTemp && !foundTempHigh) { 
+		if (readings[ii].tempC === extremes.maxTemp && !foundTempHigh) { 
 			temperatureData.setValue(ii, 2, 'High');
 			temperatureData.setValue(ii, 3, readings[ii].tempF + ' F');
 			percentData.setValue(ii, 2, 'High');
 			percentData.setValue(ii, 3, readings[ii].tempF + ' F');
 			foundTempHigh = true;
-		} else if (readings[ii].tempC == extremes.minTemp && !foundTempLow) {
+		} else if (readings[ii].tempC === extremes.minTemp && !foundTempLow) {
 			temperatureData.setValue(ii, 2, 'Low');
 			temperatureData.setValue(ii, 3, readings[ii].tempF + ' F');
 			percentData.setValue(ii, 2, 'Low');
@@ -89,11 +95,11 @@ $(document).ready(function () {
 			percentData.setValue(ii, 3, null);
 		}
 		
-		if (readings[ii].humidity == extremes.maxHumidity && !foundHumidHigh) {
+		if (readings[ii].humidity === extremes.maxHumidity && !foundHumidHigh) {
 			percentData.setValue(ii, 6, 'High');
 			percentData.setValue(ii, 7, readings[ii].humidity + ' %');
 			foundHumidHigh = true;
-		} else if (readings[ii].humidity == extremes.minHumidity) {
+		} else if (readings[ii].humidity === extremes.minHumidity) {
 			percentData.setValue(ii, 6, 'Low');
 			percentData.setValue(ii, 7, readings[ii].humidity + ' %');
 			foundHumidLow = true;
@@ -107,14 +113,14 @@ $(document).ready(function () {
 		percentData.setValue(ii, 0, readingsPercent[ii].readDate);
 		percentData.setValue(ii, 1, readingsPercent[ii].tempC);
 		
-		var tempToolTip = readingsPercent[ii].readDate + '\n' + readings[ii].tempF + ' F, ' + readings[ii].tempC + ' C ('
+		var tempToolTip = readingsPercent[ii].readDate + '\n' + readings[ii].tempF + ' F, ' + readings[ii].tempC + ' C (';
 		if (readingsPercent[ii].tempC > 0) { tempToolTip += '+'; }
 		tempToolTip += (Math.round((readingsPercent[ii].tempC*100)*100)/100) + '%)';
 		percentData.setValue(ii, 4, tempToolTip);
 		
 		percentData.setValue(ii, 5, readingsPercent[ii].humidity);
 		
-		var humidToolTip = readingsPercent[ii].readDate + '\n' + readings[ii].humidity + '% ('
+		var humidToolTip = readingsPercent[ii].readDate + '\n' + readings[ii].humidity + '% (';
 		if (readingsPercent[ii].humidity > 0) { humidToolTip += '+'; }
 		humidToolTip += (Math.round((readingsPercent[ii].humidity*100)*100)/100) + '%)';
 		percentData.setValue(ii, 8, humidToolTip);

@@ -1,4 +1,8 @@
 config.js
 .DS_Store
 node_modules
-public/library
+/.tmp
+/dist
+/public/library
+/public/js/*.min.js
+/public/css/*.min.css
