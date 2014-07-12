@@ -111,10 +111,6 @@ gulp.task('copy', ['prepare'], function() {
     gulp.src(sources.views, {cwd: bases.app})
         .pipe(gulp.dest(bases.dist + 'views'));
 
-    // Copy combined JavaScript
-    gulp.src('views/js/**/*.min.js', {cwd: bases.app + targets.tmp})
-        .pipe(gulp.dest(bases.dist + 'public/js'));
-
     // Copy controllers
     gulp.src(sources.controllers, {cwd: bases.app})
         .pipe(gulp.dest(bases.dist + 'controllers'));
@@ -150,8 +146,8 @@ gulp.task('develop', ['build'], function() {
             
         });
 
-    gulp.watch(bases.app + sources.styles, ['styles']);
-    gulp.watch(bases.app + sources.scripts, ['scripts']);
+    gulp.watch(sources.styles, ['styles'], {cwd: bases.app});
+    gulp.watch(sources.scripts, ['scripts'], {cwd: bases.app});
 });
 
 /**

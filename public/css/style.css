@@ -72,14 +72,14 @@ h6 {
 /* Set the fixed height of the footer here */
 #push,
 footer {
-	height: 100px;
+	height: 110px;
 }
 
 footer {
 	background-color: #F5F5F5;
     border-top: 1px solid #E5E5E5;
     margin-top: 30px;
-    padding: 20px 0;
+    padding: 20px 5px 5px 5px;
     text-align: center;
 }
 

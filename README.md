@@ -16,6 +16,17 @@ Fire up the site
 
 Navigate to http://localhost:8085/weather
 
+
+## Develop and Build 
+To work on the site, start the gulp develop task to monitor file changes. 
+
+	$ gulp develop 
+
+Once you're ready to deploy, build the project to the `dist` folder. 
+
+	$ gulp build
+
+
 ## Save a Reading
 When the Arudino weather station submits a new reading, it uses the following: 
 
