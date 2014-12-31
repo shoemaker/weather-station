@@ -29,7 +29,7 @@ exports.index = function(req, res) {
             var startDate = moment('01/13/2013 17:36', 'MM/DD/YYYY HH:mm');
             var endDate = moment();
             var duration = moment.duration(endDate.diff(startDate));
-            var durationDisplay = Math.round(duration.asDays()) + ' days, ' + duration.hours() + ' hours, ' + duration.minutes() + ' minutes, ' + duration.seconds() + ' seconds';
+            var durationDisplay = Math.floor(duration.get('years')) + ' years, ' + duration.months() + ' months, ' + duration.days() + ' days, ' + duration.hours() + ' hours, ' + duration.minutes() + ' minutes, ' + duration.seconds() + ' seconds';
 
 /*
             // Craft a query for this view
