@@ -16,9 +16,13 @@ var twitter = require('./controllers/twitter');
 var routes = require('./routes');
 var api = require('./routes/api');
 
+var hbs = require('hbs');
+
 // Init Express
 var app = express();
 app.set('port', c.portNum || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 app.use(compress());
 app.use(bodyParser.json());
 
