@@ -9,7 +9,7 @@ var _ = require('lodash'),
     header = require('gulp-header'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
-    clean = require('gulp-clean');
+    del = require('del');
 var nodemon = require('gulp-nodemon');
 var pkg = require('./package.json'),
     bannerTemplate = buildBannerTemplate();
@@ -45,8 +45,7 @@ var targets = {
  * Deletes the build/dist directories
  */
 gulp.task('prepare', function() {
-    return gulp.src(_.values(targets), {read:false})
-        .pipe(clean());
+    return del(_.values(targets));
 });
 
 
