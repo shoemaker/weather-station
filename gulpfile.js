@@ -5,7 +5,7 @@
 var _ = require('lodash'),
     gulp = require('gulp'),
     rename = require('gulp-rename'),
-    minifycss = require('gulp-minify-css'),
+    nano = require('gulp-cssnano'),
     header = require('gulp-header'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
@@ -58,7 +58,7 @@ gulp.task('prepare', function() {
 gulp.task('styles', ['prepare'], function() {
     gulp.src(sources.styles, {cwd: bases.app})
         .pipe(rename({suffix: '.min'}))
-        .pipe(minifycss())
+        .pipe(nano())
         .pipe(header(bannerTemplate, {pkg:pkg}))
         .pipe(gulp.dest(bases.app + 'public/css'))
         .pipe(gulp.dest(bases.dist + 'public/css'));
@@ -169,7 +169,7 @@ function buildBannerTemplate() {
     return ['/**',
       ' * <%= pkg.name %> v<%= pkg.version %> by @shoemaker',
       ' * ' + today,
-      ' * Copyright ' + now.getFullYear() + ' <%= pkg.author %>',
+      ' * Copyright ' + now.getFullYear() + ' <%= pkg.author.name %>',
       ' */',
       ''].join('\n');
 }
